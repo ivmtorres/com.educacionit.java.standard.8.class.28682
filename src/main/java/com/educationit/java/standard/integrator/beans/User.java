@@ -43,4 +43,36 @@ public class User extends Person {
 
         this.password = password;
     }
+
+    @Override
+    public int hashCode () {
+
+        return this.getEmail ().hashCode ();
+    }
+
+    @Override
+    public boolean equals (Object obj) {
+
+        if (obj instanceof User) {
+
+            User o = (User)obj;
+
+            if (o.getEmail ().equals ("")) {
+
+                return false;
+            }
+
+            return o.getEmail ().equals (this.getEmail ());
+
+        } else {
+
+            return false;
+        }
+    }
+
+    @Override
+    public String toString () {
+
+        return this.getName () + " " + this.getLastName ();
+    }
 }
